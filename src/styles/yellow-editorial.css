@@ -262,3 +262,35 @@ button:focus-visible, a:focus-visible { outline: 3px solid var(--orange-ink); ou
   .home__glass--showcase { height: auto !important; }
   .home__showcase { height: auto !important; }
 }
+
+
+/* Phone portfolio index: a vertical editorial list, not a sideways card shelf. */
+.mobile-explore { display: flex; flex-direction: column; gap: 18px; width: 100%; }
+.mobile-explore .htiles {
+  display: flex !important; flex-direction: column !important; gap: 0 !important;
+  width: 100%; overflow: visible !important; padding: 0 !important;
+  margin: 0 !important; list-style: none;
+}
+.mobile-explore .htiles > li {
+  width: 100% !important; min-width: 0 !important; list-style: none;
+  animation: none !important; transform: none !important;
+}
+.mobile-explore .htile {
+  display: grid !important; grid-template-columns: 48px minmax(0, 1fr) 20px;
+  align-items: center; gap: 13px; width: 100%; min-height: 0;
+  padding: 15px 0; border-radius: 0; border-top: 1px solid var(--line);
+  background: transparent !important; box-shadow: none !important;
+  text-decoration: none;
+}
+.mobile-explore .htiles > li:last-child .htile { border-bottom: 1px solid var(--line); }
+.mobile-explore .htile__media {
+  display: grid; place-items: center; width: 48px; height: 48px;
+  margin: 0; border-radius: 14px; background: var(--tint);
+  color: var(--orange-ink); overflow: hidden;
+}
+.mobile-explore .htile__body { display: flex; flex-direction: column; align-items: flex-start; gap: 3px; min-width: 0; }
+.mobile-explore .htile__n { font-size: 10px; font-weight: 750; letter-spacing: 0.08em; text-transform: uppercase; color: var(--orange-ink); }
+.mobile-explore .htile__title { color: var(--navy); font-size: 16px; line-height: 1.3; font-weight: 600; }
+.mobile-explore .htile__desc { color: var(--muted); font-size: 12px; line-height: 1.55; }
+.mobile-explore .htile__arrow { justify-self: end; }
+.mobile-explore .hsec { padding: 0 !important; margin: 0 !important; }
