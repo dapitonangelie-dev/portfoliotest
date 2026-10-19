@@ -40,7 +40,8 @@ export default function Home() {
         <div className="home__headline">
           <h1 className="home__title" id="home-title">
             <span className="home__line">
-              {displayName.line1} {displayName.line2}
+              <span>{displayName.line1}</span>
+              <span>{displayName.line2}</span>
             </span>
           </h1>
 

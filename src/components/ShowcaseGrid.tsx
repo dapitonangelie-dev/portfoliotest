@@ -1,47 +1,40 @@
-import Flagship from '@/components/Flagship'
+import { Link } from 'react-router-dom'
+import { ArrowUpRight } from '@/components/slab'
 
-/**
- * ShowcaseGrid - the /showcase view on one glass sheet.
- *
- * A page head with a badge card on the right, then the Flagship build: the
- * five-tab product mock, the copy, the CTA, and the testimonial marquee that
- * runs under it. Same head and glass as Projects and Services, so the shell
- * reads as one system. Styles live in src/styles/showcase.css (.ktools).
- */
+const SKILLS = [
+  { label: 'Customer communication', detail: 'Listening closely, writing clear non-voice responses, and explaining the next step.' },
+  { label: 'Process & organization', detail: 'Following documented steps, tracking details, and helping teammates navigate processes.' },
+  { label: 'Creative assistance', detail: 'Making practical Canva graphics and editing short-form videos with accessible tools.' },
+  { label: 'Continuous learning', detail: 'Building confidence with web design, Figma, GitHub, and landing-page fundamentals.' },
+]
+
 export default function ShowcaseGrid() {
   return (
-    <section className="pgrid ktools" aria-labelledby="showcase-title">
-      <header className="pgrid__head ktools__head">
-        <div className="ktools__head-copy">
-          <span className="pgrid__eyebrow">Showcase</span>
-          <h1 className="pgrid__title" id="showcase-title">
-            Your flagship product, and the people using it.
-          </h1>
-          <p className="pgrid__lede">
-            PLACEHOLDER - tell me what to put here: one line on what this product is and why a visitor should look at it.
-          </p>
-        </div>
-
-        {/* Badge slot. Fixed 320x72 box so it sits on the baseline of the
-            lede. Swap the image and text for a real badge, award or launch
-            listing, and point the link at it. */}
-        <div className="ktools__vote">
-          <p className="ktools__vote-label">
-            Featured on
-            <span aria-hidden="true" className="ktools__vote-dot" />
-            <span className="ktools__vote-ask">Placeholder</span>
-          </p>
-          <a className="ktools__vote-frame ktools__vote-card" href="#">
-            <img src="/placeholders/badge.svg" alt="" width="48" height="48" />
-            <span className="ktools__vote-text">
-              PLACEHOLDER - a badge, award or launch link
-            </span>
-          </a>
-        </div>
+    <section className="va-page" aria-labelledby="journey-title">
+      <header className="va-page__head">
+        <span className="va-eyebrow">My journey</span>
+        <h1 id="journey-title">Experience is my starting point. Learning is part of the plan.</h1>
+        <p>I’m growing from customer service into broader virtual assistance by combining the work I already know with practical, self-directed learning.</p>
       </header>
-
-      <div className="home__glass ktools__glass">
-        <Flagship eyebrow="Flagship build" />
+      <div className="va-journey-note">
+        <span className="va-journey-note__mark">M</span>
+        <div>
+          <span className="va-eyebrow">The direction</span>
+          <h2>Reliable support, thoughtful details, and creative help when it’s needed.</h2>
+          <p>I am currently learning website design and development, landing-page structure, and funnel basics. These are learning goals—not services I’m claiming as advanced expertise.</p>
+        </div>
+      </div>
+      <div className="va-skill-list">
+        {SKILLS.map((skill, index) => (
+          <article className="va-skill" key={skill.label}>
+            <span className="va-skill__num">0{index + 1}</span>
+            <div><h2>{skill.label}</h2><p>{skill.detail}</p></div>
+          </article>
+        ))}
+      </div>
+      <div className="va-endnote">
+        <p>As I practise, I’ll add more finished samples, document the process, and clearly separate learning projects from client work.</p>
+        <Link to="/projects" className="va-button">View practice samples <ArrowUpRight size={17} aria-hidden="true" /></Link>
       </div>
     </section>
   )

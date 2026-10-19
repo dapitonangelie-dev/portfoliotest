@@ -1,159 +1,88 @@
-import type { CSSProperties } from 'react'
-import { ArrowUpRight, MapPin } from '@/components/slab'
-import { profile } from '@/data/profile'
+import { Link } from 'react-router-dom'
+import { ArrowUpRight } from '@/components/slab'
 
-/**
- * AboutGrid - the About view as a fixed viewport.
- *
- * One glass sheet, two columns: who you are on the left, the illustration
- * on the right. Sized to the panel, so nothing here scrolls.
- *
- * The left column is a ladder, not a paragraph block: one display statement,
- * one line of context, then the four things you do - each carrying the marks
- * of the tools it is built with. The tools are the proof, so they are the
- * visual. Swap the marks below for your own (any square SVG/PNG in public/).
- */
-
-const N8N = { src: '/icons/ai/n8n.svg', name: 'n8n' }
-const ZAPIER = { src: '/icons/ai/zapier.svg', name: 'Zapier' }
-const DOCKER = { src: '/icons/ai/docker.svg', name: 'Docker' }
-const CLAUDE = { src: '/icons/ai/claude-color.svg', name: 'Claude' }
-const CODEX = { src: '/icons/ai/codex.svg', name: 'Codex' }
-const GLM = { src: '/icons/ai/zhipu.svg', name: 'GLM' }
-const QWEN = { src: '/icons/ai/qwen.svg', name: 'Qwen' }
-const HERMES = { src: '/icons/ai/hermes.svg', name: 'Hermes' }
-const NAMECHEAP = { src: '/icons/ai/namecheap.svg', name: 'Namecheap' }
-const CLOUDFLARE = { src: '/icons/ai/cloudflare.svg', name: 'Cloudflare' }
-const GITHUB = { src: '/icons/ai/github.svg', name: 'GitHub' }
-const GWS = { src: '/icons/googleworkspace.svg', name: 'Google Workspace' }
-const SLACK = { src: '/icons/ai/slack-color.svg', name: 'Slack' }
-const FIREFLIES = { src: '/icons/ai/fireflies.png', name: 'Fireflies' }
-
-type Capability = {
-  index: string
-  title: string
-  marks: { src: string; name: string }[]
-}
-
-const CAPABILITIES: Capability[] = [
+const EXPERIENCE = [
   {
-    index: '01',
-    title: 'Your role 1',
-    marks: [N8N, ZAPIER, DOCKER],
+    date: 'JUN 2025 — PRESENT',
+    role: 'Customer Service Representative · Automotive',
+    place: 'Teleperformance',
+    detail: 'Provide non-voice support for general vehicle-related inquiries, basic profile updates, recall and warranty status checks, and reimbursement requests. Technical diagnosis and specialist decisions are routed to the appropriate team.',
   },
   {
-    index: '02',
-    title: 'Your role 2',
-    marks: [CLAUDE, CODEX, GLM, QWEN, HERMES],
+    date: 'SEP — DEC 2025',
+    role: 'Subject Matter Expert assignment',
+    place: 'Teleperformance · Additional responsibility',
+    detail: 'Reviewed chat interactions, helped teammates follow processes and navigate tools, and identified gaps in handling. Returned to the agent role after the assignment and continued focusing on consistent performance.',
   },
   {
-    index: '03',
-    title: 'Your role 3',
-    marks: [CLAUDE, CODEX, NAMECHEAP, CLOUDFLARE, GITHUB],
+    date: 'DEC 2024 — EARLY 2025',
+    role: 'Social Media Associate · Travel support',
+    place: 'IGT Technologies Philippines, Inc.',
+    detail: 'Supported travel-related requests involving bookings, itinerary and flight modifications, cancellations, travel disruptions, baggage, pets, and related service questions using Amadeus GDS.',
   },
   {
-    index: '04',
-    title: 'Your role 4',
-    marks: [GWS, SLACK, FIREFLIES],
+    date: 'JUL — SEP 2024',
+    role: 'Systems & Methods Intern',
+    place: 'Northpoint Development Bank',
+    detail: 'Assisted with project monitoring and gap analysis as part of an internship / OJT placement.',
+  },
+  {
+    date: 'MAR 2022 — MAR 2023',
+    role: 'Digital Marketing Assistant',
+    place: 'HotShoe Photocinema',
+    detail: 'Created Canva promotional graphics, social media ad materials, captions, brochures, and publication materials for a photo and video business.',
+  },
+  {
+    date: '2020',
+    role: 'Finance Assistant',
+    place: 'Motorcentral Finance',
+    detail: 'Recorded and cross-checked daily receipts in spreadsheets.',
   },
 ]
 
 export default function AboutGrid() {
   return (
-    <section className="pgrid agrid" aria-labelledby="about-title">
-      <header className="pgrid__head">
-        <span className="pgrid__eyebrow">About</span>
-        <h1 className="pgrid__title" id="about-title">
-          {`Hi, I’m ${profile.firstName}.`}
-        </h1>
-        <p className="pgrid__lede">
-          PLACEHOLDER - tell me what to put here: one line on what you do.
-        </p>
+    <section className="va-page" aria-labelledby="about-title">
+      <header className="va-page__head">
+        <span className="va-eyebrow">About me</span>
+        <h1 id="about-title">Hi, I’m Mirelle.</h1>
+        <p className="va-lede">An aspiring Virtual Assistant with a customer support background and a creative side.</p>
       </header>
-
-      <div className="home__glass agrid__glass">
-        <div className="agrid__copy">
-          <p className="agrid__lead">
-            Your big statement goes here, in one or two lines.
-            <span> A softer second half that finishes the thought.</span>
-          </p>
-
-          <p className="agrid__note">
-            <strong>Your company name</strong>, and{' '}
-            <a className="agrid__link" href="#">
-              your product
-            </a>{' '}
-            - PLACEHOLDER - tell me what to put here: two sentences on your company, what
-            you sell or build, and who it is for.
-          </p>
-
-          <ul className="agrid__caps" role="list">
-            {CAPABILITIES.map((c) => (
-              <li key={c.index} className="agrid__cap">
-                <span className="agrid__cap-marks">
-                  {c.marks.map((m, i) => (
-                    <span
-                      key={m.name}
-                      className="agrid__mark"
-                      style={{ '--i': c.marks.length - i } as CSSProperties}
-                    >
-                      <img src={m.src} alt={m.name} loading="lazy" decoding="async" />
-                    </span>
-                  ))}
-                </span>
-                <span className="agrid__cap-title">{c.title}</span>
-                <span className="agrid__cap-index" aria-hidden="true">
-                  {c.index}
-                </span>
-              </li>
-            ))}
-          </ul>
-
-          {/* One plate, two cells sharing a mark / title / meta anatomy. */}
-          <div className="agrid__bar">
-            <span className="agrid__cell">
-              <span className="agrid__cell-mark agrid__cell-mark--img">
-                <img src="/placeholders/badge.svg" alt="" loading="lazy" decoding="async" />
-              </span>
-              <span className="agrid__cell-copy">
-                <span className="agrid__cell-title">Credential name</span>
-                <span className="agrid__cell-meta">Credential ID</span>
-              </span>
-            </span>
-
-            <span className="agrid__cell">
-              <span className="agrid__cell-mark">
-                <MapPin size={16} weight="fill" aria-hidden="true" />
-              </span>
-              <span className="agrid__cell-copy">
-                <span className="agrid__cell-title">{profile.location}</span>
-                <span className="agrid__cell-meta">Timezone · working hours</span>
-              </span>
-            </span>
-
-            <a className="agrid__cell agrid__cell--wide" href="#">
-              <span className="agrid__cell-mark agrid__cell-mark--plain">
-                <img src="/placeholders/logo.svg" alt="" loading="lazy" decoding="async" />
-              </span>
-              <span className="agrid__cell-copy">
-                <span className="agrid__cell-title">Community or affiliation</span>
-                <span className="agrid__cell-meta">Your role there</span>
-              </span>
-              <ArrowUpRight className="agrid__cell-go" size={15} weight="bold" aria-hidden="true" />
-            </a>
-          </div>
+      <div className="va-about-intro">
+        <p>I enjoy bringing order to information, helping people find the next step, and learning tools that make work easier. My background spans non-voice customer service, travel support, SME guidance, spreadsheet-based tasks, and digital marketing assistance.</p>
+        <p>I’m a fast learner, an active listener, and an observant teammate. I try to stay calm under pressure, communicate clearly, and ask rather than assume when a process needs clarification.</p>
+      </div>
+      <section className="va-subsection" aria-labelledby="experience-title">
+        <div className="va-subsection__head">
+          <span className="va-eyebrow">Work history</span>
+          <h2 id="experience-title">Experience that shaped how I work.</h2>
         </div>
-
-        <div className="agrid__portrait">
-          <img
-            src="/avatar.svg"
-            alt="Portrait placeholder"
-            loading="eager"
-            decoding="async"
-            width={400}
-            height={400}
-          />
-        </div>
+        <ol className="va-timeline">
+          {EXPERIENCE.map((item) => (
+            <li key={item.role} className="va-timeline__item">
+              <span className="va-timeline__date">{item.date}</span>
+              <div>
+                <h3>{item.role}</h3>
+                <p className="va-timeline__place">{item.place}</p>
+                <p>{item.detail}</p>
+              </div>
+            </li>
+          ))}
+        </ol>
+      </section>
+      <section className="va-education" aria-labelledby="education-title">
+        <span className="va-eyebrow">Education & development</span>
+        <h2 id="education-title">A business foundation, with room to grow.</h2>
+        <ul>
+          <li><strong>BS Entrepreneurship</strong> · PUP San Pedro Campus · 2022–2025</li>
+          <li><strong>BS Accountancy studies</strong> · PUP San Pedro Campus · 2020–2022 (two years of study)</li>
+          <li><strong>Bookkeeping training</strong> · In progress; not yet a completed certification</li>
+          <li><strong>Internship / OJT</strong> · Northpoint Development Bank · completed</li>
+        </ul>
+      </section>
+      <div className="va-endnote">
+        <p>My next step is to bring these skills into a General VA role, keep learning, and build trust through reliable day-to-day support.</p>
+        <Link to="/services" className="va-button">Explore my services <ArrowUpRight size={17} aria-hidden="true" /></Link>
       </div>
     </section>
   )

@@ -1,30 +1,24 @@
 export type QA = { q: string; a: string }
 
-/**
- * The questions people ask before they email. One list, used by the FAQ
- * accordion on the Contact view (and the legacy long-scroll FAQ section).
- * Five questions, two or three sentences each: the accordion sits in a
- * fixed panel and more than that pushes the email row off the plate.
- */
 export const FAQS: QA[] = [
   {
-    q: 'What do you do?',
-    a: 'PLACEHOLDER - tell me what to put here: the kinds of work you take on, and who it is usually for.',
+    q: 'What kind of support do you offer?',
+    a: 'I am building my General VA services around customer support, administrative tasks, spreadsheet and document organization, simple social media content, and travel-support experience.',
   },
   {
-    q: 'How fast can you start?',
-    a: 'PLACEHOLDER - tell me what to put here: your usual lead time for small fixes vs. larger projects, and your working hours.',
+    q: 'What tools are you comfortable with?',
+    a: 'I use Microsoft 365, Excel, Canva, CapCut, Filmora, Amadeus GDS, and customer relationship or internal support tools. My experience with Google tools and Premiere Pro is at a beginner level.',
   },
   {
-    q: 'How much do you charge?',
-    a: 'PLACEHOLDER - tell me what to put here: how you price (hourly, per project, retainer) and how a quote is put together.',
+    q: 'Can you handle technical or specialist decisions?',
+    a: 'I follow documented workflows and escalate matters that require specialist approval or technical expertise. I will not claim to diagnose issues or make decisions outside my role.',
   },
   {
     q: 'Where are you based?',
-    a: 'PLACEHOLDER - tell me what to put here: your location or timezone, and which client timezones you overlap with.',
+    a: 'I am based in San Pedro, Laguna, Philippines (UTC+8). Availability and schedule can be discussed for each opportunity.',
   },
   {
-    q: 'What happens after I write?',
-    a: 'PLACEHOLDER - tell me what to put here: how fast you reply and what the next step looks like.',
+    q: 'How do we get started?',
+    a: 'We can begin by discussing the task, desired outcome, tools, scope, timeline, and expectations. Contact details will appear here once the public contact channel is ready.',
   },
 ]

@@ -45,6 +45,7 @@ import './styles/a11y.css'
 import './styles/apple.css'
 // Mobile motion + component pass on top of it (phone shell only).
 import './styles/mobile-pass.css'
+import './styles/yellow-editorial.css'
 // Last: the perf tiers only ever turn things OFF, so they must win.
 import './styles/perf.css'
 
