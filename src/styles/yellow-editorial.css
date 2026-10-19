@@ -241,3 +241,24 @@ button:focus-visible, a:focus-visible { outline: 3px solid var(--orange-ink); ou
   .va-contact-panel { grid-template-columns: 1fr; gap: 15px; padding: 24px 20px; }
   .va-contact-panel__sun { font-size: 40px; }
 }
+
+
+/* The old Home assumed a fixed, single-viewport bento grid. The editorial index
+   is content-led, so let the page and its list use their natural height. */
+.home__glass--showcase {
+  display: block !important;
+  height: auto !important;
+  flex: 0 0 auto !important;
+}
+.home__showcase {
+  display: block !important;
+  height: auto !important;
+  min-height: 0 !important;
+}
+/* Keep the inherited contour shader decorative and visually quiet behind text. */
+.hero-canvas { opacity: 0.12; pointer-events: none !important; }
+
+@media (max-width: 1099px) {
+  .home__glass--showcase { height: auto !important; }
+  .home__showcase { height: auto !important; }
+}
